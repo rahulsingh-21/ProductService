@@ -32,7 +32,7 @@ func PlaceOrder(ctx *gin.Context) {
 		if order.Category == "Premium" {
 			totalPremiumOrders++
 		}
-		totalPrice += int(order.SalePrice)
+		totalPrice += int(order.SalePrice) * int(count)
 		err := model.UpdateCatalouge(order.Id, int(count))
 		if err != nil {
 			helper.StatusBadRequest(ctx, "Not able to Update Product Catalouge")
