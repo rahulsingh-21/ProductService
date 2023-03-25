@@ -30,7 +30,7 @@ func PlaceOrder(ctx *gin.Context) {
 			return
 		}
 		if order.Category == "Premium" {
-			totalPremiumOrders++
+			totalPremiumOrders += int(count)
 		}
 		totalPrice += int(order.SalePrice) * int(count)
 		err := model.UpdateCatalouge(order.Id, int(count))
